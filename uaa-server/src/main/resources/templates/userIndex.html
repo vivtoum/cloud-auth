@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title th:text="#{index.title}"></title>
+
+<link rel="stylesheet" href="/static/plugins/jquery-easyui/themes/default/easyui.css" type="text/css"/>
+<link rel="stylesheet" href="/static/plugins/jquery-easyui/themes/icon.css" type="text/css"/>
+
+<link rel="stylesheet" href="/static/styles/menu.css" type="text/css" media="screen" />
+<style type="text/css">
+	body{
+		margin: 0px;
+	}
+	#bottom{
+		font:12px/1.5 "Lucida Grande",Helvetica,Arial,sans-serif;
+	}
+</style>
+</head>
+<body style="overflow: hidden;">
+	<div id="top" style="overflow: hidden; height: 40px; background: url(/static/styles/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;line-height: 30px; color: #fff; font-family: Verdana, 微软雅黑, 黑体">
+		<!-- 这里写系统信息等 -->
+		<span style="padding-left: 10px; font-size: 16px; float: left;" th:text="#{index.title}"></span>
+			<span style="float: right; padding-right: 20px;" class="head" th:text="#{index.welcome}"><div th:text="${user.userName}"></div>
+			<a href="#" onclick="updatePass()" style="color: #fff" th:text="#{index.changePassword}"></a>
+			<a href="#" onclick="logout();" style="color: #fff" th:text="#{index.quit}"></a>
+		</span>
+	</div>
+	<div id="content" style="overflow: hidden;">
+		<div class="easyui-layout" style="width:100%;height:100%;">
+	        <div data-options="region:'west',split:true,onCollapse:westCollapseCallback" th:title="#{index.navigationMenu}" style="width:195px;">
+	            <div id='menus' class="easyui-accordion" fit="true" border="false"></div>
+	        </div>
+	        <div data-options="region:'center'" style="width:195px;">
+			    <div id="tabs" class="easyui-tabs" data-options="tools:'#tab-tools',fit:true,border:false" >
+			    	<div id="index" th:title="#{index.homePage}" style="padding:10px;height: 100%">
+			            <img src="/static/styles/images/main.jpg" width="100%" height="100%"/>
+			        </div>
+			    </div>
+			    <div id="tab-tools" style="border-right: 0;border-top: 0;">
+			        <a href="javascript:void(0)" id="closeTab" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" ></a>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom" >
+		<!-- 这里写备案信息等 -->
+		<div style="text-align: center;">Copyright &copy; <div th:text="#{index.BeiJingInsight}"></div></div>
+	</div>
+	<input type="hidden" id="flowplayerUrl" value="/static/plugins/flowplayer/flowplayer.swf"/>
+</body>
+
+<script type="text/javascript" src="/static/plugins/menu.js"></script>
+<script type="text/javascript" th:src="@{/scripts/index.js}"></script>
+</html>

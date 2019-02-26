@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: uaa-server
+  datasource:
+    url: jdbc:mysql://39.104.49.60:3306/test?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    max-idle: 5
+    max-wait: 10000
+    min-idle: 2
+    initial-size: 3
+    validation-query: SELECT 1
+    time-between-eviction-runs-millis: 18800
+    jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=50)
+  jpa: 
+    database: MYSQL
+    show-sql: true
+  redis:
+    host: 39.104.49.60
+    port: 6379
+    password: QQqq407716220
+
+thymeleaf: 
+    cache: false
+    cache-period: 0
+template: 
+    cache: false
+
+server:
+  port: 7769
+  context-path: /uaa
+  use-forward-headers: false
+  tomcat:
+    uri-encoding: UTF-8
+
+eureka: 
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+security:
+  basic:
+    enabled: false
+  user:
+    password: password
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+  sessions: NEVER
+
+jwt:
+  access:
+    token:
+      converter:
+        resource:
+          location: classpath:keystore.jks
+          password: foobar
+          key-pair-alias: test
+     
+http:
+  authorize:
+    #不走认证的url集合
+    matchers: /**/css/**,/**/js/**,/**/plugin/**,/**/template/**,/**/img/**,/**/fonts/**,/**/cvr100u/**,/css/**,/js/**,/plugin/**,/template/**,/img/**,/fonts/**,/cvr100u/**
+  login:
+    path: /login
+    
