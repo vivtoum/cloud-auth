@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Admin</title>
+    <!--<script th:replace="common/head::static"></script>-->
+    <!--<script th:src="@{shiro/js/login.js}"></script>-->
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="robots" content="all,follow"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
+<body>
+<div class="page login-page">
+    <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+            <div class="row">
+                <!-- Logo & Information Panel-->
+                <div class="col-lg-6">
+                    <div class="info d-flex align-items-center">
+                        <div class="content">
+                            <div class="logo">
+                                <h1>EXPERTBEAM</h1>
+                                <!--<img th:src="@{img/logo.png}">-->
+                            </div>
+                            <p>Page Admin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:if="${session.SPRING_SECURITY_LAST_EXCEPTION}">
+                    <div th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></div>
+                </div>
+
+                <!-- Form Panel    -->
+                <div class="col-lg-6 bg-white">
+                    <div class="form d-flex align-items-center">
+                        <div class="content">
+                            <form method="post" id="loginForm" th:action="@{/login}" class="form-validate">
+                                <div th:if="${param.error}">
+                                    <input th:value="无效的用户或密码" id="errorMsg" type="hidden"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="login-username" type="text" name="username" required="required"
+                                           data-msg="Please enter your username" class="input-material"
+                                           value="vedyou@qq.com"/>
+                                    <label for="login-username" class="label-material">User Name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input id="login-password" type="password" name="password" required="required"
+                                           data-msg="Please enter your password" class="input-material" value="123456"/>
+                                    <label for="login-password" class="label-material">Password</label>
+                                </div>
+                                <input class="btn btn-primary" type="submit" value="Login"/>
+                                <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                            </form>
+                            <!--
+                                                        <a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  <div class="copyrights text-center">
+          <p>Design by <a href="#" class="external">Bootstrapious</a>
+              &lt;!&ndash; Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)&ndash;&gt;
+          </p>
+      </div>-->
+</div>
+
+<div class="modal fade" id="errorMsgBox" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--<div class="modal-body">-->
+            <!--<h4 th:text="${msg}" id="errorMsg"></h4>-->
+            <!--</div>-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+</html>

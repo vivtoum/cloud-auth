@@ -27,10 +27,10 @@ public class LoginController {
 		if(cookie != null){
 			String suffix = cookie.getValue();
 			if(StringUtils.hasLength(suffix)){
-				return "login/login" + suffix.substring(0,1).toUpperCase() + suffix.substring(1);
+                return "login/login2" + suffix.substring(0, 1).toUpperCase() + suffix.substring(1);
 			}
 		}
-		
-		return "login/login";
+
+        return "login/login2";
 	}
 }

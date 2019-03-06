@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="static">
+    <head>
+        <script th:inline="javascript">
+            ctx = [[${#request.getContextPath()}]];//应用路径
+        </script>
+    </head>
+    <head>
+
+        <link rel="icon" th:href="@{/img/logo.png}" type="image/x-icon"/>
+
+        <!-- fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet'
+              type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="all"
+              rel="stylesheet" type="text/css">
+        <!-- /fonts -->
+        <!-- css files -->
+        <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/font-awesome.min.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/lightbox.min.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/blog.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/team.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/portfolio.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/event.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/banner.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/nav.css}" rel="stylesheet" type="text/css" media="all"/>
+        <link th:href="@{/styles/style.css}" rel="stylesheet" type="text/css" media="all"/>
+        <!-- /css files -->
+        <!-- js files -->
+        <script th:src="@{scripts/SmoothScroll.min.js}"></script>
+        <script th:src="@{scripts/modernizr.js}"></script>
+        <script th:src="@{scripts/jbone.js}"></script>
+        <script th:src="@{scripts/pureSlider.js}"></script>
+        <!-- /js files -->
+    </head>
+</head>
+
+<body>
+
+</body>
+</html>

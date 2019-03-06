@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--跳转页面的菜单-->
+<section class="navigation" th:fragment="inner_menu">
+    <div id="toggle"><span></span></div>
+    <div id="menu">
+        <span id="title">Menu</span>
+        <ul>
+            <li><a th:href="@{/}"><span>Home</span></a></li>
+            <li><a th:href="@{/X3}"><span>X3 Series</span></a></li>
+            <li><a th:href="@{/S1}"><span>S1 Series</span></a></li>
+            <li><a th:href="@{/LED}"><span>LED Car Atmosphere Lights</span></a></li>
+            <li><a href="#contacts"><span>Contacts</span></a></li>
+        </ul>
+    </div>
+</section>
+
+<!--首页菜单-->
+<section class="navigation" th:fragment="homepage_menu">
+    <div id="toggle"><span></span></div>
+    <div id="menu">
+        <span id="title">Menu</span>
+        <ul>
+            <li><a th:href="@{/}"><span>Home</span></a></li>
+            <li><a href="#about"><span>About</span></a>
+            <li><a href="#avantages"><span>Advantages</span></a></li>
+            <li><a th:href="@{/X3}"><span>X3 Series</span></a></li>
+            <li><a th:href="@{/S1}"><span>S1 Series</span></a></li>
+            <li><a th:href="@{/LED}"><span>LED Car Atmosphere Lights</span></a></li>
+            <li><a href="#contacts"><span>Contacts</span></a></li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>
